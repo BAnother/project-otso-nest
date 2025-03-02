@@ -12,8 +12,6 @@ export class ProductsService {
     @InjectRepository(Product)
     private productRepository: Repository<Product>,
   ){}
-  private products: CreateProductDto[] = [
-  ];
    create(createProductDto: CreateProductDto) {
     const product = this.productRepository.save(createProductDto)
     return product;
@@ -32,9 +30,10 @@ export class ProductsService {
   }
 
   findByProvider(id: string){
-    const productFound = this.products.filter((product)=>product.provider === id);
-    if (productFound.length == 0) throw new NotFoundException()
-    return productFound;
+    return "Ok"
+    //const productFound = this.products.filter((product)=>product.provider === id);
+    //if (productFound.length == 0) throw new NotFoundException()
+    //return productFound;
   }
 
   async update(id: string, updateProductDto: UpdateProductDto) {
