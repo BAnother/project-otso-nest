@@ -48,8 +48,12 @@ export class ProductsService {
   }
 
   remove(id: string) {
-    return this.productRepository.delete({
+    this.findOne(id)
+    this.productRepository.delete({
       productId: id,
     })
+    return {
+      message: 'Objeto con id ${id} eliminado'
+    }
   }
 }
