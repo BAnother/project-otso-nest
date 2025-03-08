@@ -33,6 +33,20 @@ async findOneByName(name: string){
   return provider;
 }
 
+async update(id: string, updateProviderDto: UpdateProviderDto) {
+  const product = await this.providerRepository.preload({
+    providerId: id,
+    ...updateProviderDto
+  })
+
+  if (!product) {
+    throw new NotFoundException(`Provider con ID ${id} no encontrado`);
+  }
+
+  return this.providerRepository.save(product);
+}
+
+/*
   async update(id: string, updateProviderDto: UpdateProviderDto) {
     const product = await this.providerRepository.preload({
       providerId: id,
@@ -40,6 +54,7 @@ async findOneByName(name: string){
     })
     return this.providerRepository.save(product);
   }
+*/
 
   remove(id: string) {
     this.providerRepository.delete({

@@ -13,17 +13,17 @@ import { RegionsModule } from './regions/regions.module';
   imports: [
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
-    type: 'postgres',
-    host: process.env.host,
-    port: Number(process.env.port),
-    username: 'postgres',
-    password: process.env.pass,
-    database: process.env.name,
-    entities: [],
-    autoLoadEntities: true,
-    synchronize: true,
-  }), EmployeesModule, ProductsModule, ProvidersModule, ManagersModule, LocationsModule, RegionsModule],
+      type: 'postgres',
+      host: process.env.host,
+      port: Number(process.env.port),
+      username: 'postgres',
+      password: process.env.pass,
+      database: process.env.name,
+      entities: [],
+      autoLoadEntities: true,
+      synchronize: true,
+    }), EmployeesModule, ProductsModule, ProvidersModule, ManagersModule, LocationsModule, RegionsModule],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }

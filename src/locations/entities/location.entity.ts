@@ -1,5 +1,4 @@
 import { Entity, PrimaryGeneratedColumn, Column} from "typeorm"
-
 @Entity()
 export class Location {
     @PrimaryGeneratedColumn('increment')
@@ -8,6 +7,6 @@ export class Location {
     locationName: string;
     @Column('text')
     locationAddress: string;
-    @Column('array')
+    @Column('simple-array')
     locationLatLng: number[];
 }
