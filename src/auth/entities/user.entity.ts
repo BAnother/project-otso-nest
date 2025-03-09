@@ -5,8 +5,10 @@ import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 @Entity()
 export class User{
     @PrimaryGeneratedColumn('uuid')
-    userid: string;
-    @Column('text')
+    userId: string;
+    @Column('text', {
+        unique: true,
+    })
     userEmail: string;
     @Column('text')
     userPassword: string;
