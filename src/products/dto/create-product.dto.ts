@@ -1,4 +1,4 @@
-import { IsOptional,IsUUID, IsString, MaxLength, IsNumber, IsInt } from "class-validator";
+import { IsOptional,IsUUID, IsString, MaxLength, IsNumber, IsInt, IsObject } from "class-validator";
 import { Product } from "../entities/product.entity";
 import { Provider } from "src/providers/entities/provider.entity"
 export class CreateProductDto extends Product {
@@ -13,7 +13,6 @@ export class CreateProductDto extends Product {
     price: number;
     @IsInt()
     countSeal: number;
-    @IsString()
-    @IsUUID()
+    @IsObject()
     provider: Provider;
 }
